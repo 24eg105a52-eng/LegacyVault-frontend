@@ -51,6 +51,11 @@ export default function Navbar() {
                   </NavLink>
                 </li>
                 <li>
+                  <NavLink to="/beneficiary-vault" className={({ isActive }) => `nav-link ${isActive ? 'active' : ''}`}>
+                    Beneficiary Vault
+                  </NavLink>
+                </li>
+                <li>
                   <NavLink to="/profile" className={({ isActive }) => `nav-link ${isActive ? 'active' : ''}`}>
                     Profile
                   </NavLink>

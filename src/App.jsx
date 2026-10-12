@@ -10,6 +10,8 @@ import VaultPage from './pages/VaultPage';
 import ContactsPage from './pages/ContactsPage';
 import EmergencyAccessPage from './pages/EmergencyAccessPage';
 import ProfilePage from './pages/ProfilePage';
+import VerifyContactPage from './pages/VerifyContactPage';
+import BeneficiaryVaultPage from './pages/BeneficiaryVaultPage';
 
 export default function App() {
   return (
@@ -24,6 +26,8 @@ export default function App() {
           <Route path="/vault" element={<VaultPage />} />
           <Route path="/contacts" element={<ContactsPage />} />
           <Route path="/emergency-access" element={<EmergencyAccessPage />} />
+          <Route path="/beneficiary-vault" element={<BeneficiaryVaultPage />} />
+          <Route path="/verify-contact" element={<VerifyContactPage />} />
           <Route path="/profile" element={<ProfilePage />} />
           <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>
