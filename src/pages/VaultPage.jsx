@@ -208,7 +208,7 @@ export default function VaultPage() {
         } else {
           const res = await api.post('/vault', form);
           if (res.data && res.data.success) {
-            setFeedback({ type: 'success', text: '✓ New digital asset secured with AES-256-GCM in MySQL.' });
+            setFeedback({ type: 'success', text: '✓ New digital asset secured with AES-256-GCM.' });
             setShowAddForm(false);
             setForm({ title: '', category: 'DOCUMENT', description: '', secretContent: '' });
             fetchAssets();

@@ -2,14 +2,28 @@ import axios from 'axios';
 
 /**
  * Pre-configured Axios instance for LegacyVault backend communication.
- * Base URL targets the Spring Boot REST API on port 8080.
+ * Dynamically resolves API base URL from VITE_API_BASE_URL (for production deployments, e.g., on Vercel)
+ * and falls back to local development 'http://localhost:8080/api'.
  */
+function resolveBaseUrl() {
+  let url = import.meta.env.VITE_API_BASE_URL || 'http://localhost:8080/api';
+  // Strip trailing slashes
+  while (url.endsWith('/')) {
+    url = url.slice(0, -1);
+  }
+  // Ensure /api suffix is present
+  if (!url.endsWith('/api')) {
+    url = `${url}/api`;
+  }
+  return url;
+}
+
 const api = axios.create({
-  baseURL: 'http://localhost:8080/api',
+  baseURL: resolveBaseUrl(),
   headers: {
     'Content-Type': 'application/json'
   },
-  timeout: 10000
+  timeout: 15000
 });
 
 // Request interceptor: attach valid JWT Bearer token to all outgoing requests
